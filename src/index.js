@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import http from 'http'; // ES6 syntax
 
-function requestHandler(req, res) {
+const requestHandler = function (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Hello, World!');
 }
