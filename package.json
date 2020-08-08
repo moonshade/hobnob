@@ -6,7 +6,7 @@
 		"watch": "nodemon -w src --exec yarn run server",
 		"fix": "eslint src --fix",
 		"lint": "eslint src",
-		"pre-commit": "yarn run lint"
+		"precommit": "yarn run lint"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",
