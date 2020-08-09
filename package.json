@@ -30,7 +30,9 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
-    "nodemon": "^2.0.4"
+    "ndb": "^1.1.5",
+    "nodemon": "^2.0.4",
+    "superagent": "^6.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4"

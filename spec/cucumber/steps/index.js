@@ -1,12 +1,33 @@
+import superagent from 'superagent';
 import { When, Then } from 'cucumber';
 
-When('the client creates a POST request to /users', (callback) => callback(null, 'pending'));
+let request;
+let result;
+let error;
 
-When('attaches a generic empty payload', (callback) => callback(null, 'pending'));
+When('the client creates a POST request to /users', () => {
+  request = superagent('POST', 'localhost:8080/users');
+});
 
-When('sends the request', (callback) => callback(null, 'pending'));
+When('attaches a generic empty payload', () => undefined);
 
-Then('our API should respond with a 400 HTTP status code', (callback) => callback(null, 'pending'));
+When('sends the request', (callback) => {
+  request
+    .then((response) => {
+      result = response.res;
+      callback();
+    })
+    .catch((errResponse) => {
+      error = errResponse.response;
+      callback();
+    });
+});
+
+Then('our API should respond with a 400 HTTP status code', () => {
+  if (error.statusCode !== 400) {
+    throw new Error();
+  }
+});
 
 Then('the payload of the response should be a JSON object', (callback) => callback(null, 'pending'));
 
