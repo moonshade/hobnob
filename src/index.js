@@ -1,10 +1,8 @@
-import '@babel/polyfill';
-import http from 'http'; // ES6 syntax
+// import '@babel/polyfill';
+import express from 'express';
 
-function requestHandler(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!');
-}
-
-const server = http.createServer(requestHandler);
-server.listen(8080);
+const app = express();
+app.listen(process.env.SERVER_PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Hobnob API server listening on port ${process.env.SERVER_PORT}!`);
+});
